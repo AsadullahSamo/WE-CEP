@@ -1,0 +1,294 @@
+.dashboard {
+    padding: 1.5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.dashboard.refreshing > *:not(.refresh-icon):not(.refresh-text) {
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.refresh-icon,
+.refresh-text {
+    position: relative;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-content {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.user-menu {
+    position: relative;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.user-menu-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.user-menu-trigger:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.user-menu-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: linear-gradient(to bottom right, rgba(30, 30, 30, 0.95), rgba(20, 20, 20, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: rgba(255, 255, 255, 0.87);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.menu-item.delete {
+    color: #ff6b6b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.delete:hover {
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #4CAF50;
+    font-weight: 700;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.dashboard-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(to bottom right, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.9));
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.control-group {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.control-group input, 
+.control-group select {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    padding-left: 2.5rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.control-group input:focus, 
+.control-group select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+.control-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 2.2rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.1rem;
+}
+
+.control-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    opacity: 1;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.5);
+}
+
+.control-group input {
+    background-color: rgba(255, 255, 255, 0.07);
+    color: white;
+    -webkit-text-fill-color: white;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-grid > div {
+    width: 100%;
+}
+
+.dashboard-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.dashboard-footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.dashboard-footer a:hover {
+    text-decoration: underline;
+}
+
+.refresh-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    z-index: 1000;
+    position: relative;
+}
+
+.refresh-button:hover {
+    background: #43A047;
+    transform: translateY(-1px);
+}
+
+.refresh-button:active {
+    transform: translateY(0);
+}
+
+.refresh-button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.refresh-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 1rem;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+    
+    .dashboard-controls {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .control-group {
+        width: 100%;
+    }
+    
+    .refresh-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .dashboard-header p {
+        font-size: 1rem;
+    }
+    
+    .dashboard-controls {
+        padding: 0.75rem;
+    }
+}
