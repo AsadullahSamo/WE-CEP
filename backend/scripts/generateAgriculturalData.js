@@ -31,11 +31,16 @@ const generateDatabase = async () => {
         // Process World Bank data
         if (worldBank && worldBank.length > 0) {
             worldBank.forEach(item => {
-                const uniqueKey = `${item.year}_${item.crop}_${item.region}_${item.source}`;
+                // Include month in the uniqueness key if it exists
+                const uniqueKey = item.month 
+                    ? `${item.year}_${item.month}_${item.crop}_${item.region}_${item.source}`
+                    : `${item.year}_${item.crop}_${item.region}_${item.source}`;
+                    
                 if (!uniqueKeys.has(uniqueKey)) {
                     uniqueKeys.add(uniqueKey);
                     processedData.push({
                         year: item.year,
+                        month: item.month || null, // Include month data in the database
                         crop: item.crop,
                         production: item.production,
                         area: item.area,
@@ -54,11 +59,16 @@ const generateDatabase = async () => {
         // Process USDA data
         if (usda && usda.length > 0) {
             usda.forEach(item => {
-                const uniqueKey = `${item.year}_${item.crop}_${item.region}_${item.source}`;
+                // Include month in the uniqueness key if it exists
+                const uniqueKey = item.month 
+                    ? `${item.year}_${item.month}_${item.crop}_${item.region}_${item.source}`
+                    : `${item.year}_${item.crop}_${item.region}_${item.source}`;
+                    
                 if (!uniqueKeys.has(uniqueKey)) {
                     uniqueKeys.add(uniqueKey);
                     processedData.push({
                         year: item.year,
+                        month: item.month || null, // Include month data in the database
                         crop: item.crop,
                         production: item.production,
                         area: item.area,
@@ -77,11 +87,16 @@ const generateDatabase = async () => {
         // Process Open Data Pakistan data
         if (openDataPakistan && openDataPakistan.length > 0) {
             openDataPakistan.forEach(item => {
-                const uniqueKey = `${item.year}_${item.crop}_${item.region}_${item.source}`;
+                // Include month in the uniqueness key if it exists
+                const uniqueKey = item.month 
+                    ? `${item.year}_${item.month}_${item.crop}_${item.region}_${item.source}`
+                    : `${item.year}_${item.crop}_${item.region}_${item.source}`;
+                    
                 if (!uniqueKeys.has(uniqueKey)) {
                     uniqueKeys.add(uniqueKey);
                     processedData.push({
                         year: item.year,
+                        month: item.month || null, // Include month data in the database
                         crop: item.crop,
                         production: item.production,
                         area: item.area,

@@ -1,0 +1,183 @@
+/* ExternalDataSources component styles */
+.external-data-sources {
+    position: relative;
+    padding: 1.5rem;
+    background: linear-gradient(to right bottom, rgba(30, 30, 30, 0.9), rgba(25, 25, 25, 0.9));
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.external-data-sources h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+}
+
+.data-sources-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.data-source-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-source-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.data-source-card:nth-child(1)::before {
+    background: linear-gradient(90deg, #2196F3, #03A9F4);
+}
+
+.data-source-card:nth-child(2)::before {
+    background: linear-gradient(90deg, #9C27B0, #673AB7);
+}
+
+.data-source-card:nth-child(3)::before {
+    background: linear-gradient(90deg, #FF9800, #FFC107);
+}
+
+.data-source-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.data-source-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.data-source-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.source-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.record-count {
+    padding: 0.35rem 0.75rem;
+    background: rgba(76, 175, 80, 0.2);
+    color: #fff;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.data-source-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.detail-value {
+    color: #fff;
+    font-weight: 500;
+}
+
+.source-description {
+    flex-direction: column;
+    border-bottom: none;
+}
+
+.source-description p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0;
+    line-height: 1.5;
+}
+
+.no-data {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 2rem;
+    font-style: italic;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Refreshing overlay styles */
+.external-data-sources .refreshing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    border-radius: 8px;
+    backdrop-filter: blur(2px);
+}
+
+.external-data-sources .refreshing-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .data-sources-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .data-source-card {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "WE-CEP",
+    "version": "1.0.0",
+    "lockfileVersion": 3,
+    "requires": true,
+    "packages": {},    "scripts": {
+        "dev": "concurrently \"npm run start --prefix frontend\" \"npm run dev --prefix backend\"",
+        "generate": "node backend/scripts/generateAgriculturalData.js",
+        "start": "concurrently \"npm run start --prefix frontend\" \"npm run start --prefix backend\""
+    },
+    "dependencies": {
+        "concurrently": "^9.1.2"
+    }
+}

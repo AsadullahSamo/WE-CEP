@@ -5,6 +5,15 @@ const agriculturalDataSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    month: {
+        type: Number,
+        required: false
+    },
+    season: {
+        type: String,
+        enum: ['Rabi', 'Kharif', 'Annual'],
+        required: false
+    },
     crop: {
         type: String,
         required: true
